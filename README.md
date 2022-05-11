@@ -15,3 +15,6 @@ binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
 Antes de comenzar a trabajar con el binding. Pero ahora el crasheo se trasladó a return binding.recyclerViewFragment.
 
 Si cambiamos binding.root. Se evita el crasheo. Pero terminamos en la misma circunstancia del comienzo. Solo mostrando el RecyclerView
+
+Para eludir el solucionar el problema analizaremos los ejemplos de plantillas ya hechas por android studio, Utilizaremos la de la barra lateral, y la que contiene el recyclerview en conjunto con los fragments. Para esto habrá que cambiar en este ultimo la barra de navegación inferior, por la barra de navegación lateral. 
+Una fusionadas ambas plantillas en nuestro proyecto podremos continuar con su desarrollo
