@@ -1,5 +1,6 @@
 package com.example.bookpedia
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.bookpedia.adapter.BookAdapter
 import com.example.bookpedia.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
@@ -22,11 +24,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
+    private var layoutManager: RecyclerView.LayoutManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         //val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
         val toolbar: androidx.appcompat.widget.Toolbar= binding.appBarMainInclude.toolbarMain
@@ -44,7 +48,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView: NavigationView= binding.navView
         navigationView.setNavigationItemSelectedListener(this)
 
-        //initRecyclerView()
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        val fragment = RecyclerViewFragment()
+        fragmentTransaction.add(R.id.fragmen_recyclerView, fragment)
+        fragmentTransaction.commit()
+
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

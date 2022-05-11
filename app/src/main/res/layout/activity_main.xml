@@ -21,4 +21,9 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
         android:layout_gravity="start"/>
+    <fragment
+        android:id="@+id/fragmen_recyclerView"
+        android:name="com.example.bookpedia.RecyclerViewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </androidx.drawerlayout.widget.DrawerLayout>
