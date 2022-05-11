@@ -44,25 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView: NavigationView= binding.navView
         navigationView.setNavigationItemSelectedListener(this)
 
-        initRecyclerView()
+        //initRecyclerView()
     }
-
-    private fun initRecyclerView() {
-        val manager = LinearLayoutManager(this)
-        val decoration = DividerItemDecoration(this, manager.orientation)
-        val recyclerView = binding.recyclerView
-        recyclerView.layoutManager = manager
-        recyclerView.adapter = BookAdapter(Temporal_provider.Books_List){
-            book -> onItemSelected(book)
-        }
-    }
-
-    private fun onItemSelected(book: Book) {
-        Toast.makeText(this, book.title, Toast.LENGTH_SHORT).show()
-    }
-
-
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_item_one -> Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()

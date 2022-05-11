@@ -2,6 +2,7 @@ package com.example.bookpedia.adapter
 
 import android.content.DialogInterface
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bookpedia.Book
@@ -14,12 +15,12 @@ class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //SETTEAMOS TEXTOS
         binding.textViewBook.text=bookModel.title
         binding.textViewAuthor.text=bookModel.author
+
         //SETTEAMOS IMAGEN
 
         Glide.with(binding.imageViewBook.context).load(bookModel.image).into(binding.imageViewBook)
         itemView.setOnClickListener{
             onClickListener(bookModel)
         }
-
     }
 }
