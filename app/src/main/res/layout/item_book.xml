@@ -30,7 +30,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/size_text_title_book"
             android:textAlignment="center"
-            tools:text="THE EXPANSE"/>
+            tools:text="El Despertar de Leviatán"/>
         <TextView
             android:id="@+id/textViewAuthor"
             android:layout_width="wrap_content"

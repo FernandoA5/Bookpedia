@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
+import android.widget.LinearLayout
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookpedia.adapter.BookAdapter
 import com.example.bookpedia.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
@@ -39,7 +43,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //val navigationView: NavigationView= findViewById(R.id.nav_view)
         val navigationView: NavigationView= binding.navView
         navigationView.setNavigationItemSelectedListener(this)
+
+        initRecyclerView()
     }
+
+    private fun initRecyclerView() {
+        val manager = LinearLayoutManager(this)
+        val decoration = DividerItemDecoration(this, manager.orientation)
+        val recyclerView = binding.recyclerView
+        recyclerView.layoutManager = manager
+        recyclerView.adapter = BookAdapter(Temporal_provider.Books_List){
+            book -> onItemSelected(book)
+        }
+    }
+
+    private fun onItemSelected(book: Book) {
+        Toast.makeText(this, book.title, Toast.LENGTH_SHORT).show()
+    }
+
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){

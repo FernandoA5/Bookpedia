@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout-land/item_book.xml" value="0.27760416666666665" />
         <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout/app_bar_main.xml" value="0.2" />
-        <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout/item_book.xml" value="0.22" />
+        <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout/item_book.xml" value="0.75" />
         <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/layout/nav_header_main.xml" value="0.2" />
         <entry key="..\:/Proyectos Android Studio/Bookpedia/app/src/main/res/menu/activity_main_drawer.xml" value="0.2" />
       </map>
