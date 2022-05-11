@@ -10,28 +10,34 @@ import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.bookpedia.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
+        //val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
+        val toolbar: androidx.appcompat.widget.Toolbar= binding.appBarMainInclude.toolbarMain
         setSupportActionBar(toolbar)
 
-        drawer = findViewById(R.id.drawer_layout)
+        //drawer = findViewById(R.id.drawer_layout)
+        drawer = binding.drawerLayout
         toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer.addDrawerListener(toggle)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
-        val navigationView: NavigationView= findViewById(R.id.nav_view)
+        //val navigationView: NavigationView= findViewById(R.id.nav_view)
+        val navigationView: NavigationView= binding.navView
         navigationView.setNavigationItemSelectedListener(this)
     }
 
