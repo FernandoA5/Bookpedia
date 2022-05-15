@@ -1,4 +1,4 @@
-package com.example.bookpedia
+package com.example.app2
 
 import org.junit.Test
 
