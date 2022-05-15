@@ -16,16 +16,9 @@ import com.example.app2.R
 import com.example.app2.databinding.FragmentTransformBinding
 import com.example.app2.databinding.ItemTransformBinding
 
-/**
- * Fragment that demonstrates a responsive layout pattern where the format of the content
- * transforms depending on the size of the screen. Specifically this Fragment shows items in
- * the [RecyclerView] using LinearLayoutManager in a small screen
- * and shows items using GridLayoutManager in a large screen.
- */
 class TransformFragment : Fragment() {
 
     private var _binding: FragmentTransformBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -53,15 +46,12 @@ class TransformFragment : Fragment() {
         _binding = null
     }
 
-    class TransformAdapter :
-        ListAdapter<String, TransformViewHolder>(object : DiffUtil.ItemCallback<String>() {
+    class TransformAdapter : ListAdapter<String, TransformViewHolder>(object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
 
-            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
-                oldItem == newItem
-
-            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
-                oldItem == newItem
-        }) {
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+        })
+    {
 
         private val drawables = listOf(
             R.drawable.avatar_1,
@@ -88,17 +78,22 @@ class TransformFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: TransformViewHolder, position: Int) {
-            holder.textView.text = getItem(position)
-            holder.imageView.setImageDrawable(
-                ResourcesCompat.getDrawable(holder.imageView.resources, drawables[position], null)
-            )
+            holder.title?.text = getItem(position)
+            //ESTO MUESTRA LA IMAGEN
+            //
+            // SI QUITAS ITEMS DE drawables, SE MUESTRAN MENOS ELEMENTOS EN EL RV PERO CRASHEA.
+            //Si COMENTAS ESTA LINEA, YA NO CRASHEA, PERO MUESTRA 16 ELEMENTOS AUNQUE drawables TENGA MENOS.
+            holder.imagen?.setImageDrawable(ResourcesCompat.getDrawable(holder.imagen.resources, drawables[position], null))
+
+            holder.author?.text = getItem(position)
         }
     }
 
     class TransformViewHolder(binding: ItemTransformBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        val imageView: ImageView = binding.imageViewItemTransform
-        val textView: TextView = binding.textViewItemTransform
+        val imagen: ImageView? = binding.imageViewBook
+        val title: TextView? = binding.textViewBook
+        val author: TextView? = binding.textViewAuthor
     }
 }

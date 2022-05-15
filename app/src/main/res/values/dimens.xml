@@ -6,4 +6,7 @@
     <dimen name="reflow_text_block_horizontal_gap">8dp</dimen>
     <dimen name="reflow_text_title_size">22sp</dimen>
     <dimen name="reflow_text_description_size">13sp</dimen>
+    <dimen name="size_books_images">150dp</dimen>
+    <dimen name="size_text_title_book">18dp</dimen>
+    <dimen name="size_text_author">16dp</dimen>
 </resources>
